@@ -4777,7 +4777,8 @@ body {
 
 section {
     padding-top: 6.25rem;
-    padding-bottom: 6.25rem
+    padding-bottom: 6.25rem;
+    background: #f8f8f8;
 }
 
 section hr {

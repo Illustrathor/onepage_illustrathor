@@ -1,0 +1,53 @@
+<div class="row pt-5">
+    <div class="input-group col-md-12">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="">Site name</span>
+        </div>
+        <input type="text" name="parameter[parameters][site_name]" class="form-control" value="{% if form.parameters['site_name'] is defined %}{{ form.parameters['site_name'].vars.value }}{% endif %}">
+    </div>
+
+    <div class="input-group col-md-6 pt-2">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="">Contact address</span>
+        </div>
+        <input type="text"
+               name="parameter[parameters][contact_address]"
+               class="form-control"
+               value="{% if form.parameters['contact_address'] is defined %}{{ form.parameters['contact_address'].vars.value }}{% endif %}"
+        >
+    </div>
+
+    <div class="input-group col-md-6 pt-2">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="">Contact name</span>
+        </div>
+        <input type="text"
+               name="parameter[parameters][contact_name]"
+               class="form-control"
+               value="{% if form.parameters['contact_name'] is defined %}{{ form.parameters['contact_name'].vars.value }}{% endif %}"
+        >
+    </div>
+
+
+    <div class="input-group col-md-6 pt-2">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="">Contact email</span>
+        </div>
+        <input type="text"
+               name="parameter[parameters][contact_email]"
+               class="form-control"
+               value="{% if form.parameters['contact_email'] is defined %}{{ form.parameters['contact_email'].vars.value }}{% endif %}"
+        >
+    </div>
+
+    <div class="input-group col-md-6 pt-2">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="">Contact phone</span>
+        </div>
+        <input type="text"
+               name="parameter[parameters][contact_phone]"
+               class="form-control"
+               value="{% if form.parameters['contact_phone'] is defined %}{{ form.parameters['contact_phone'].vars.value }}{% endif %}"
+        >
+    </div>
+</div>

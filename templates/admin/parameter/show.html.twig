@@ -1,0 +1,33 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}View parameter{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="text-center">
+        <h1>Parameter: {{ parameter.labels.fr_FR }}</h1>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <b>Code:</b> {{ parameter.code }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <b>Attributes</b>
+        </div>
+        {% if parameter.parameters is not empty %}
+            {% for attribute, value in parameter.parameters %}
+                <div class="col-md-4">
+                    <b>{{ attribute }}</b>  -  {{ value }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="row pt-4">
+        <div class="col-md-6 text-left"><a class="btn btn-secondary" href="{{ path('parameter_index') }}">back to list</a></div>
+        <div class="col-md-6 text-right"><a class="btn btn-primary" href="{{ path('parameter_edit', {'id': parameter.id}) }}">edit</a></div>
+    </div>
+    {% endblock %}

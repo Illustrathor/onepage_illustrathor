@@ -1,0 +1,26 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Edit Publication{% endblock %}
+
+{% block body %}
+    <h1>Edit: {{ publication.labels.fr_FR }}</h1>
+    <hr>
+    <div class="card card-body">
+        {{ include('@damnPortfolio/publication/_form.html.twig', {'button_label': 'Update'}) }}
+        <a class="btn btn-primary mt-5" href="{{ path('publication_index') }}">back to list</a>
+    </div>
+{% endblock %}
+
+{% block javascript %}
+{#  Bootstrap #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+{#  Jqueri UI #}
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+{# jquery.collection.js #}
+<script type="text/javascript" src="{{ asset('js/jquery.collection.js') }}"></script>
+{# Import fengyuanchen/cropper #}
+<script src="{{ asset('bundles/artgrismedia/libs/cropperjs-1.4.1/cropper.min.js') }}"></script>
+{# Then the default bundle's JavaScript: #}
+{% include '@ArtgrisMedia/assets/include_js.html.twig' %}
+{% endblock %}

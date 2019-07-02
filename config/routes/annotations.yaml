@@ -1,0 +1,7 @@
+controllers:
+    resource: ../../src/Controller/
+    type: annotation
+
+portfolio:
+    resource: ../../src/Extensions/Portfolio/Controller/
+    type: annotation

@@ -1,0 +1,29 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Portraits{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-8 text-left"><h1>Portraits</h1></div>
+        <div class="col-md-4 text-right"><a class="btn btn-success" href="{{ path('portrait_new') }}">Create new</a></div>
+    </div>
+    <div class="row">
+        {% for portrait in portraits %}
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ portrait.file ? asset(portrait.file)| imagine_filter('card_scale_filter') : "" }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ portrait.labels ? portrait.labels.fr_FR : '' }}</h5>
+                        <p class="card-text">{{ portrait.descriptions ? portrait.descriptions.fr_FR : '' }}</p>
+                        <a class="btn btn-primary" href="{{ path('portrait_show', {'id': portrait.id}) }}">show</a>
+                        <a class="btn btn-secondary" href="{{ path('portrait_edit', {'id': portrait.id}) }}">edit</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-md-12">
+                No records found
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

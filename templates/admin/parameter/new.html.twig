@@ -1,0 +1,13 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}New Parameter{% endblock %}
+
+{% block body %}
+    <h1>New Parameter</h1>
+    <hr>
+    <div class="card card-body">
+        {{ include('admin/parameter/forms/_form.html.twig') }}
+
+        <a class="btn btn-primary mt-5" href="{{ path('parameter_index') }}">back to list</a>
+    </div>
+{% endblock %}

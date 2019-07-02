@@ -1,0 +1,43 @@
+{% extends 'front/layout/main.layout.html.twig' %}
+
+{% block content %}
+    <section class="ftco-section">
+        <div class="container" style="margin-top: -100px;">
+            <h1>Search for #{{ keyword }}</h1>
+            <div class="jumbotron jumbotron-fluid pr-3 pl-3 alert" style="background-color: #ccb78f;color:white;">
+                <h1 class="display-4">Series</h1>
+                <div class="row d-flex">
+                    <div class="col-lg-8">
+                        <div class="row">
+                            {% for serie in results.series %}
+                                {% set locale = app.request.getLocale()|lower ~ '_' ~ app.request.getLocale()|upper %}
+                                <div class="col-md-12" style="margin-bottom: -80px;">
+                                    <div class="blog-entry ftco-animate d-md-flex">
+                                        <a href="{{ path('front_serie', {name:serie.slug}) }}" class="img img-2" style="background-image: url({{ serie.coverImage }});"></a>
+                                        <div class="text text-2 p-4">
+                                            <h3 class="mb-2"><a href="{{ path('front_serie', {name:serie.slug}) }}">{{ serie.labels[locale] }}</a></h3>
+                                            <div class="meta-wrap">
+                                                <p class="">
+                                                    <span>{{ serie.dateSent|date('D d M Y') }}</span>
+                                                </p>
+                                            </div>
+                                            <p class="mb-4">{{ serie.descriptions[locale] }}</p>
+                                            <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% else %}
+                                0 result for series
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

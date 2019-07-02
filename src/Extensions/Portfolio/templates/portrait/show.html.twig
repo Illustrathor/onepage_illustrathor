@@ -1,0 +1,47 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Portrait{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="text-center">
+            <h1>Portrait: {{ portrait.labels.fr_FR }}</h1>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                <b>Code:</b> {{ portrait.code }}
+            </div>
+            <div class="col-md-3">
+                <b>Name:</b> {{ portrait.labels.fr_FR }}
+            </div>
+            <div class="col-md-3">
+                <b><span class="{{ portrait.online ? 'text-success' : 'text-danger' }}">{{ portrait.online ? 'Online' : 'Offline' }}</span></b>
+            </div>
+            <div class="col-md-6">
+                <b>URL:</b> {{ portrait.slug }}
+            </div>
+            <div class="col-md-6">
+                <b>Tags:</b> {% for tag in portrait.tags %}<span class="badge badge-info m-2">{{ tag }}</span>{% endfor %}
+            </div>
+            <div class="col-md-12">
+                <b>Description:</b>
+                <p>{{ portrait.descriptions.fr_FR|raw }}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="text-center col-md-12">
+                <img style="max-width: 100%; max-height: 450px;" src="{{ asset(portrait.file) }}" />
+                <p>(cover image)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row pt-4">
+        <div class="col-md-4 text-left"><a class="btn btn-secondary" href="{{ path('portrait_index') }}">back to list</a></div>
+        <div class="col-md-4 text-center"><a class="btn btn-primary" href="{{ path('portrait_edit', {'id': portrait.id}) }}">edit</a></div>
+        <div class="col-md-4 text-right">{{ include('@damnPortfolio/portrait/_delete_form.html.twig') }}</div>
+    </div>
+{% endblock %}

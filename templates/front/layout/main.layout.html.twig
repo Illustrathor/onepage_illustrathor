@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><?= HEAD_TILE; ?></title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800">
+  <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+</head>
+
+<body class="visible-overflow">
+
+  <!-- Header -->
+
+  <div class="navbar-responsive">
+      <div class="flex-container">
+          <span id="close__menu">
+              <i class="material-icons">accessible_forward</i>
+              <p>exit</p>
+          </span>
+          <div class="row">
+              <div class="flex-item">
+                  <a class="scroll" id="about" href="#"><i class="material-icons">account_circle</i><p>A propos</p></a>
+              </div>
+              <div class="flex-item">
+                  <a class="scroll" id="experience" href="#"><i class="material-icons">gavel</i> <p>Experiences</p></a>
+              </div>
+              <div class="flex-item">
+                  <a class="scroll" id="skill" href="#"><i class="material-icons">fingerprint</i> <p>Skills</p></a>
+              </div>
+              <div class="flex-item">
+                  <a class="scroll" id="work" href="#"><i class="material-icons">folder_special</i> <p>Work</p></a>
+              </div>
+              <div class="flex-item">
+                  <a class="scroll" id="contact" href="#"><i class="material-icons">dialpad</i> <p>Contact</p></a>
+              </div>
+              <div class="flex-item">
+                  <a href="#"><i class="material-icons">sentiment_satisfied_alt</i></a>
+              </div>
+          </div>
+      </div>
+  </div>
+  <header>
+    <div class="container">
+      <div class="logonavbar row">
+        <div class="logo col-9 col-lg-4">
+          <img src="img/site/illustrathor_logo_header.png" alt="illustrathor_logo_header.png">
+        </div>
+        <div class="navbar col-3 col-lg-8">
+          <nav class="hidden-md-down">
+            <ul>
+              <li><a class="scroll hvr-underline-from-left" id="about" href="#"><?= MENU_ABOUTME;?></a></li>
+              <li><a class="scroll hvr-underline-from-left" id="experience" href="#"><?= MENU_EXPERIENCES;?></a></li>
+              <li><a class="scroll hvr-underline-from-left" id="skill" href="#"><?= MENU_SKILLS;?></a></li>
+              <li><a class="scroll hvr-underline-from-left" id="work" href="#"><?= MENU_WORK;?></a></li>
+              <li><a href="?locale=fr">FR</a> | <a href="?locale=en">EN</a></li>
+            </ul>
+          </nav>
+          <nav class="hidden-lg-up">
+            <ul>
+              <li><a href="#"><img class="menu" src="img/site/menu.svg" alt="menu.svg"></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <h1 class="catchphrase">i'm a <span id="word">creator</span></h1>
+      <a class="scroll down-arrow" id="about" href="#"><img src="img/site/down-arrow.svg" alt="down-arrow.svg"></a>
+    </div>
+  </header>
+
+  <!-- A propos -->
+  <section class="about">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <h2 class="text-lg-left">About me</h2>
+          <hr class="mx-lg-0">
+          <h3><strong><?= NAME; ?> VANDROMME</strong>, Graphic designer</h3>
+          <p>Hi! My name is Victor, and i’m graphic designer. I leave in France, close to Lille. I started to get interested in graphic design at a very young age, all these years of creations have allowed me to acquire good skills in the field. I have few work experiences but I am very motivated to undertake my projects!</p>
+          <ul>
+            <li>Name : VANDROMME Victor</li>
+            <li>E-mail : <a href="mailto:contact@illustrathor.com">contact@illustrathor.com</a></li>
+            <li>Telephone number : +33 (0)7 83 86 92 26</li>
+          </ul>
+        </div>
+        <div class="col-6 hidden-md-down">
+          <img class="logo" src="img/site/logo_illustrathor.svg" alt="logo_illustrathor.svg">
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Mes expériences professionnelles -->
+<section class="experience">
+  <div class="container">
+    <h2>Professional Experiences</h2>
+    <hr>
+    <div class="row">
+      <div class="col-12 col-xl-6">
+        <article>
+          <div class="period">2016 / 2018</div>
+          <h3>Freelance</h3>
+          <h4>Graphic Designer & Illustrator</h4>
+          <p>From 2016 to 2018 I had activities as a freelance graphic designer. This experience allowed me to increase my level in the field simultaneously with my studies. <br /> During this period I was able to work for and a few companies, of the design to illustration until creation of advertising posters.</p>
+        </article>
+      </div>
+      <div class="col-12 col-xl-6">
+        <article>
+          <div class="period">2018 / 2019</div>
+          <h3>Internship</h3>
+          <h4>Graphic & Web Designer</h4>
+          <p>In 2018 I was taken on an internship 2 months by a web self-entrepreneur developer. This internship allowed me to learn the basics of web design and web development. During the month of March 2019 I did an internship at the Prophilm company as a graphic designer and Webdesigner. This one allowed me to increase my level.</p>
+        </article>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mes compétences -->
+<section class="skill">
+  <div class="container">
+    <h2>SKILLS</h2>
+    <hr>
+    <div class="row">
+      <div class="flex col-12 col-lg-6">
+        <div class="percent">90%</div>
+        <div class="progress-container">
+          <strong>Photoshop</strong>
+          <div class="progress">
+            <div class="progress-bar" style="width: 90%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex col-12 col-lg-6">
+        <div class="percent">70%</div>
+        <div class="progress-container">
+          <strong>Draw</strong>
+          <div class="progress">
+            <div class="progress-bar" style="width: 70%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex col-12 col-lg-6">
+        <div class="percent">80%</div>
+        <div class="progress-container">
+          <strong>Illustrator</strong>
+          <div class="progress">
+            <div class="progress-bar" style="width: 80%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex col-12 col-lg-6">
+        <div class="percent">60%</div>
+        <div class="progress-container">
+          <strong>Lightroom</strong>
+          <div class="progress">
+            <div class="progress-bar" style="width: 60%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mes réalisations -->
+<section class="work">
+  <div class="container">
+    <h2>WORK</h2>
+    <hr>
+    <p>A selection of some recent creations</p>
+    <div class="row">
+      <div class="col-6 col-lg-3">
+        <figure>
+          <figcaption>
+            <a href="img/realisation/skay-adastra.jpg" data-lightbox="work"><img src="img/site/loupe.svg" alt="loupe.svg"></a>
+          </figcaption>
+          <img src="img/realisation/skay-adastra.jpg" alt="skay-adastra.jpg">
+        </figure>
+      </div>
+      <div class="col-6 col-lg-3">
+        <figure>
+          <figcaption>
+            <a href="img/realisation/pain.jpg" data-lightbox="work"><img src="img/site/loupe.svg" alt="loupe.svg"></a>
+          </figcaption>
+          <img src="img/realisation/pain.jpg" alt="pain.jpg">
+        </figure>
+      </div>
+      <div class="col-6 col-lg-3">
+        <figure>
+          <figcaption>
+            <a href="img/realisation/zweih-cover.png" data-lightbox="work"><img src="img/site/loupe.svg" alt="loupe.svg"></a>
+          </figcaption>
+          <img src="img/realisation/zweih-cover.png" alt="zweih-cover.png">
+        </figure>
+      </div>
+      <div class="col-6 col-lg-3">
+        <figure>
+          <figcaption>
+            <a href="img/realisation/prime-akatsuki.jpg" data-lightbox="work"><img src="img/site/loupe.svg" alt="loupe.svg"></a>
+          </figcaption>
+          <img src="img/realisation/prime-akatsuki.jpg" alt="prime-akatsuki.jpg">
+        </figure>
+      </div>
+      <div class="col-6 col-lg-3">
+        <figure>
+          <figcaption>
+            <a href="img/realisation/Logo-BE.png" data-lightbox="work"><img src="img/site/loupe.svg" alt="loupe.svg"></a>
+          </figcaption>
+          <img src="img/realisation/Logo-BE.png" alt="Logo-BE.png">
+        </figure>
+      </div>
+      <div class="col-6 col-lg-3">
+        <figure>
+          <figcaption>
+            <a href="img/realisation/logo-illustrathor-2.png" data-lightbox="work"><img src="img/site/loupe.svg" alt="loupe.svg"></a>
+          </figcaption>
+          <img src="img/realisation/logo-illustrathor-2.png" alt="logo-illustrathor-2.png">
+        </figure>
+      </div>
+      <div class="col-6 col-lg-3">
+        <figure>
+          <figcaption>
+            <a href="img/realisation/super-maman.jpg" data-lightbox="work"><img src="img/site/loupe.svg" alt="loupe.svg"></a>
+          </figcaption>
+          <img src="img/realisation/super-maman.jpg" alt="super-maman.jpg">
+        </figure>
+      </div>
+      <div class="col-6 col-lg-3">
+        <figure>
+          <figcaption>
+            <a href="img/realisation/chasse.jpg" data-lightbox="work"><img src="img/site/loupe.svg" alt="loupe.svg"></a>
+          </figcaption>
+          <img src="img/realisation/chasse.jpg" alt="chasse.jpg">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="color:white" class="skill contact">
+<div class="container">
+  <div class="row">
+      <div class="col-md-8">
+          <div class="well well-sm">
+              <form>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="name">
+                              Name</label>
+                          <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                      </div>
+                      <div class="form-group">
+                          <label for="email">
+                              Email Address</label>
+                          <div class="input-group">
+                              <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                              </span>
+                              <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                      </div>
+                      <div class="form-group">
+                          <label for="subject">
+                              Subject</label>
+                          <select id="subject" name="subject" class="form-control" required="required">
+                              <option value="na" selected="">Choose One:</option>
+                              <option value="service">General Customer Service</option>
+                              <option value="suggestions">Suggestions</option>
+                              <option value="product">Product Support</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                          <label for="name">
+                              Message</label>
+                          <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                              placeholder="Message"></textarea>
+                      </div>
+                  </div>
+                  <div class="col-md-12">
+                      <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                          Send Message</button>
+                  </div>
+              </div>
+              </form>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <form>
+          <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
+          <address>
+              <strong>Twitter, Inc.</strong><br>
+              795 Folsom Ave, Suite 600<br>
+              San Francisco, CA 94107<br>
+              <abbr title="Phone">
+                  P:</abbr>
+              (123) 456-7890
+          </address>
+          <address>
+              <strong>Full Name</strong><br>
+              <a href="mailto:#">first.last@example.com</a>
+          </address>
+          </form>
+      </div>
+  </div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container pb-5">
+    <p>© Victor "ILLUSTRATHOR" Vandromme - All Right Reserved</p>
+    <div class="row">
+      <div class="col-md-6 text-right"><a target="_blank" href="https://twitter.com/illustra_thor"><img src="img/site/twitter.svg" width="50px" alt="twitter.svg"></a></div>
+      <div class="col-md-6"><a target="_blank" href="https://www.instagram.com/thor_atb"><img src="img/site/instagram.svg" width="50px" alt="instagram.svg"></a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+<script src="js/lightbox.min.js"></script>
+<script src="js/illustrathor.js"></script>
+
+</body>
+</html>

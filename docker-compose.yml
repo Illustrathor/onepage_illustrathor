@@ -1,0 +1,41 @@
+version: '2'
+
+services:
+  fpm:
+    build: docker/fpm
+    environment:
+      COMPOSER_HOME: '/home/docker/.composer'
+      PHP_IDE_CONFIG: 'serverName=pim-ee-cli'
+      PHP_XDEBUG_ENABLED: 0
+      PHP_XDEBUG_IDE_KEY: 'XDEBUG_IDE_KEY'
+      XDEBUG_CONFIG: 'remote_host=xxx.xxx.xxx.xxx'
+      SSH_AUTH_SOCK: '/ssh-agent'
+    user: docker
+    volumes:
+      - ./:/srv/pim
+      - ~/.composer:/home/docker/.composer
+      - ~/.ssh:/home/docker/.ssh
+    working_dir: /srv/pim
+
+  httpd:
+    image: httpd:2.4
+    depends_on:
+      - fpm
+    environment:
+      PHP_IDE_CONFIG: 'serverName=pim-ee'
+    ports:
+      - '8080:80'
+    volumes:
+      - ./:/srv/pim:ro
+      - ./docker/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro
+      - ./docker/newquery.conf:/usr/local/apache2/conf/vhost.conf:ro
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: newquery
+      MYSQL_PASSWORD: newquery
+      MYSQL_DATABASE: newquery
+    ports:
+      - '3306:3306'

@@ -1,0 +1,31 @@
+{% extends 'front/layout/main.layout.html.twig' %}
+
+{% block content %}
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                {% for multimedia in multimedias %}
+                    <div class="col-md-8" style="padding-bottom: 55px;">
+                        {% if app.request.getLocale() == 'en' %}
+                            {% set title = multimedia.labels.en_EN %}
+                            {% set description = multimedia.descriptions.en_EN %}
+                        {% else %}
+                            {% set title = multimedia.labels.fr_FR %}
+                            {% set description = multimedia.descriptions.fr_FR %}
+                        {% endif %}
+                        {{ multimedia.embed|raw }}
+                    </div>
+                    <div class="col-md-4">
+                        <h3>{{ title }}</h3>
+                        <p style="text-align: justify;font-family: 'Gothic A1:300', sans-serif">{{ description|nl2br }}</p>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block title %}
+    Multimedias - {{ parent() }}
+{% endblock %}

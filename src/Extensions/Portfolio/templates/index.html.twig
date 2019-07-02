@@ -1,0 +1,40 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Portrait Index{% endblock %}
+
+{% block body %}
+    <h1>Portrait index</h1>
+    <div class="table-responsive-md">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Online</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for portrait in portraits %}
+                <tr>
+                    <td>{{ portrait.name }}</td>
+                    <td>{{ portrait.description }}</td>
+                    <td><img src="{{ asset('uploads/' ~ portrait.image) }}" style="max-height: 70px;width: auto;"></td>
+                    <td>{{ portrait.enabled ? 'Yes' : 'No' }}</td>
+                    <td>
+                        <a href="{{ path('portrait_show', {'id': portrait.id}) }}">show</a>
+                        <a href="{{ path('portrait_edit', {'id': portrait.id}) }}">edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="13">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{{ path('portrait_new') }}">Create new</a>
+{% endblock %}

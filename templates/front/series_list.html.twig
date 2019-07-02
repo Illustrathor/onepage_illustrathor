@@ -1,0 +1,59 @@
+{% extends 'front/layout/main.layout.html.twig' %}
+
+{% block meta %}
+
+{% endblock %}
+
+{% block content %}
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row d-flex">
+                <div class="col-lg-8">
+                    <div class="row">
+                        {% for serie in series %}
+                            {% if app.request.getLocale() == 'en' %}
+                                {% set title = serie.labels.en_EN %}
+                                {% set description = serie.descriptions.en_EN %}
+                            {% else %}
+                                {% set title = serie.labels.fr_FR %}
+                                {% set description = serie.descriptions.fr_FR %}
+                            {% endif %}
+                            <div class="col-md-12">
+                                <div class="blog-entry ftco-animate d-md-flex">
+                                    <a href="{{ path('front_serie', {name:serie.slug}) }}" class="img img-2" style="background-image: url({{ serie.coverImage }});"></a>
+                                    <div class="text text-2 p-4">
+                                        <h3 class="mb-2"><a href="{{ path('front_serie', {name:serie.slug}) }}">{{ title }}</a></h3>
+                                        <p class="mb-4">{{ description }}</p>
+                                        <p><a href="{{ path('front_serie', {name:serie.slug}) }}" class="btn-custom">See more<span class="ion-ios-arrow-forward"></span></a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div><!-- END-->
+                    <!--
+                    <div class="row">
+                        <div class="col">
+                            <div class="block-27">
+                                <ul>
+                                    <li><a href="#">&lt;</a></li>
+                                    <li class="active"><span>1</span></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">&gt;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block title %}
+    Series - {{ parent() }}
+{% endblock %}
+

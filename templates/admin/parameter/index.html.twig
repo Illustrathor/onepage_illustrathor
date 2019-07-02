@@ -1,0 +1,30 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Parameters{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-8 text-left"><h1>Parameters</h1></div>
+        <div class="col-md-4 text-right"><a class="btn btn-success" href="{{ path('parameter_new') }}">Create new</a></div>
+    </div>
+    <div class="row">
+        {% for parameter in parameters %}
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ parameter.labels.fr_FR }}</h5>
+                        <p class="card-text">
+                            <b>Template:</b>{{ parameter.template }} <br>
+                        </p>
+                        <a class="btn btn-primary" href="{{ path('parameter_show', {'id': parameter.id}) }}">show</a>
+                        <a class="btn btn-secondary" href="{{ path('parameter_edit', {'id': parameter.id}) }}">edit</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-md-12">
+                No records found
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

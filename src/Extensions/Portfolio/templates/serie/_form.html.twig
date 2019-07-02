@@ -1,0 +1,53 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{{ form_start(form) }}
+{{ form_row(form._token) }}
+<div class="alert">
+    {{ form_errors(form) }}
+</div>
+<div class="row">
+    <div class="col">
+        {% if button_label is defined and button_label == "Update" %}
+            {{ form_row(form.code, {attr: {'readonly':'readonly'}}) }}
+        {% else %}
+            {{ form_row(form.code) }}
+        {% endif %}
+    </div>
+    <div class="col" id="some-custom-id">
+        {{ form_row(form.slug) }}
+    </div>
+    <div class="col" id="some-custom-id">
+        {{ form_row(form.online) }}
+    </div>
+    <div class="col" id="some-custom-id">
+        {{ form_row(form.tagsText) }}
+    </div>
+</div>
+<div id="labels">
+    <span style="font-size: 24px;">Labels</span>
+    {% for locale, value in form.labels %}
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">{{ locale }}</span>
+            </div>
+            <input type="text" name="serie[labels][{{ locale }}]" value="{% if serie.labels[locale] is defined %}{{ serie.labels[locale] }}{% endif %}" class="form-control">
+        </div>
+    {% endfor %}
+</div>
+<hr>
+<div id="descriptions">
+    <span style="font-size: 24px;">Descriptions</span>
+    {% for locale, value in form.descriptions %}
+        <div class="form-group">
+            <label for="serie[descriptions][{{ locale }}]">{{ locale }}</label>
+            <textarea class="form-control" id="serie[descriptions][{{ locale }}]" name="serie[descriptions][{{ locale }}]" rows="3">{% if serie.descriptions[locale] is defined %}{{ serie.descriptions[locale] }}{% endif %}</textarea>
+        </div>
+    {% endfor %}
+</div>
+<br>
+{{ form_row(form.cover_image) }}
+{{ form_row(form.images) }}
+<div class="text-center">
+    <button class="btn btn-success ">{{ button_label|default('Save') }}</button>
+</div>
+{# don't render unrendered fields #}
+{{ form_end(form, {'render_rest': false}) }}

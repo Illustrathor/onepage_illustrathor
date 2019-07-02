@@ -1,0 +1,17 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+fos_user:
+  resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+artgris_media:
+  resource: "@ArtgrisMediaBundle/Resources/config/routing.yml"
+  prefix: /admin
+
+artgris_bundle_file_manager:
+  resource: "@ArtgrisFileManagerBundle/Controller"
+  type:     annotation
+  prefix:   /manager
+
+_liip_imagine:
+  resource: "@LiipImagineBundle/Resources/config/routing.yaml"

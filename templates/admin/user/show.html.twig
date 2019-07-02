@@ -1,0 +1,37 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Show user{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid">
+    <div class="text-center">
+        <h1>User: {{ user.username }}</h1>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-3">
+            <b>username:</b> {{ user.username }}
+        </div>
+        <div class="col-md-3">
+            <b>Email:</b> {{ user.email }}
+        </div>
+        <div class="col-md-3">
+            <b><span class="{{ user.enabled ? 'text-success' : 'text-danger' }}">{{ user.enabled ? 'Online' : 'Offline' }}</span></b>
+        </div>
+        <div class="col-md-3">
+            <b>Last login:</b> {{ user.lastLogin ? user.lastLogin|date('Y-m-d H:i:s') : '' }}
+        </div>
+        <div class="col-md-3">
+            <b>Roles:</b> <br>
+            {% for role in user.roles %}
+                <span class="badge badge-info">{{ role }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row pt-4">
+        <div class="col-md-4 text-left"><a class="btn btn-secondary" href="{{ path('user_index') }}">back to list</a></div>
+        <div class="col-md-4 text-center"><a class="btn btn-primary" href="{{ path('user_edit', {'id': user.id}) }}">edit</a></div>
+        <div class="col-md-4 text-right">{{ include('admin/user/_delete_form.html.twig') }}</div>
+    </div>
+    {% endblock %}

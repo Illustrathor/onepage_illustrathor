@@ -1,0 +1,27 @@
+{% extends 'front/layout/main.layout.html.twig' %}
+
+{% block content %}
+    <section class="ftco-section-3">
+        <div class="photograhy">
+            <div class="row">
+                {% set x = 1 %}
+                {% for i in portraits %}
+                    <div class="col-md-4 ftco-animate">
+                        <a href="{{asset(i.file) }}" class="photography-entry img image-popup d-flex justify-content-start align-items-end"
+                           style="background-image: url({{i.file|imagine_filter('small')}});">
+                            <div class="overlay"></div>
+                            <div class="text ml-4 mb-4">
+                                <h3>{{ i.labels.en_EN }}</h3>
+                            </div>
+                        </a>
+                    </div>
+                    {% set x = (x+1) %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block title %}
+    Portraits - {{ parent() }}
+{% endblock %}

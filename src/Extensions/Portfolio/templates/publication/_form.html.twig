@@ -1,0 +1,44 @@
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{{ form_start(form) }}
+{{ form_row(form._token) }}
+<div class="alert">
+    {{ form_errors(form) }}
+</div>
+<div class="row">
+    <div class="col">
+        {{ form_row(form.code) }}
+    </div>
+    <div class="col" id="some-custom-id">
+        {{ form_row(form.slug) }}
+    </div>
+    <div class="col" id="some-custom-id">
+        {{ form_row(form.online) }}
+    </div>
+</div>
+<div id="labels">
+    <span style="font-size: 24px;">Labels</span>
+    {% for locale, value in form.labels %}
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="">{{ locale }}</span>
+            </div>
+            <input type="text" name="publication[labels][{{ locale }}]" value="{% if publication.labels[locale] is defined %}{{ publication.labels[locale] }}{% endif %}" class="form-control">
+        </div>
+    {% endfor %}
+</div>
+<hr>
+<div id="descriptions">
+    <span style="font-size: 24px;">Descriptions</span>
+    {% for key , description in form.descriptions %}
+        {{ form_row(form.descriptions[key], {'value':publication.descriptions[key]|raw}) }}
+    {% endfor %}
+</div>
+{{ form_row(form.link) }}
+<br>
+{{ form_row(form.cover_image) }}
+{{ form_row(form.tagsText) }}
+<div class="text-center">
+    <button class="btn btn-secondary ">{{ button_label|default('Save') }}</button>
+</div>
+{# don't render unrendered fields #}
+{{ form_end(form, {'render_rest': false}) }}

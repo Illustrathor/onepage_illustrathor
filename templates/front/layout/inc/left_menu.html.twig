@@ -1,0 +1,47 @@
+<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center" >
+    <div class="text-center pb-5">
+        <a href="https://www.facebook.com/jeanne.frn" target="_blank"><i class="fab fa-facebook-square"></i></a>
+        <a href="https://www.instagram.com/jeannefourneau/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/user/jeannefrn" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://soundcloud.com/jeanne-frn" target="_blank"><i class="fab fa-soundcloud"></i></a>
+        <a href="https://www.linkedin.com/in/jeannefourneau/" target="_blank"><i class="fab fa-linkedin"></i></a>
+
+    </div>
+    <div style="padding-bottom: 45px;">
+        <div class="input-group">
+            <input class="form-control py-2 border-right-0 border" type="search" placeholder="Search" id="search-tag-input">
+            <span class="input-group-append" id="search-tag-button">
+                <div class="input-group-text bg-transparent"><i class="fa fa-search"></i></div>
+            </span>
+        </div>
+    </div>
+    <nav id="colorlib-main-menu" role="navigation">
+        <ul>
+            <li style="font-weight: lighter">
+                <a href="#" class="colorlib-active" style="font-size:20px;font-family: 'Gothic A1:400', sans-serif; letter-spacing: 2px" id="series_menu">Photo</a>
+                <div id="series_display" style="display: none;">
+                    <ul>
+                        <li style="font-size: 12px;color: black;font-weight: lighter"><a style="font-family: 'Gothic A1:400', sans-serif" href="{{ path('front_portraits') }}">Portrait</a></li>
+                        <li style="font-size: 12px;color: black;font-weight: lighter">
+                            <a style="font-family: 'Gothic A1:400', sans-serif;" href="{{ path('front_series_list') }}">Serie</a>
+                        </li>
+                        <li style="font-size: 12px;color: black;display: none"><a style="font-family: 'Gothic A1:400', sans-serif" href="{{ path('front_serie', { 'name': 'terrain' }) }}">Corporate</a></li>
+
+                    </ul>
+                </div>
+            </li>
+            <li style="font-weight: lighter"><a href="{{ path('front_multimedia') }}" style="font-family: 'Gothic A1:400', sans-serif;font-size: 20px;">Multimedia</a></li>
+            <li style="padding-bottom: 35px;font-weight: lighter;letter-spacing: 2px"><a style="font-family: 'Gothic A1:400', sans-serif;font-size: 20px" href="{{ path('front_son') }}">Son</a></li>
+            <li style="font-size: 13px;font-weight: lighter"><a style="font-family: 'Gothic A1:400', sans-serif" href="{{ path('front_publications') }}">Publication&nbsp;&&nbsp;exposition</a></li>
+            <li style="font-size: 13px;font-weight: lighter"><a style="font-family: 'Gothic A1:400', sans-serif" href="{{ path('front_contact') }}">Contact</a></li>
+        </ul>
+
+        <div class="mt-5">
+            <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">EN</a>
+
+            <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'fr'})) }}">FR</a>
+        </div>
+    </nav>
+
+</aside>

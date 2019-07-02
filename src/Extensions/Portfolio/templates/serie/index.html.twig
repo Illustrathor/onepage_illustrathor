@@ -1,0 +1,29 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Serie index{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-8 text-left"><h1>Series</h1></div>
+        <div class="col-md-4 text-right"><a class="btn btn-success" href="{{ path('serie_new') }}">Create new</a></div>
+    </div>
+    <div class="row">
+        {% for serie in series %}
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ serie.coverImage ? asset(serie.coverImage)| imagine_filter('card_scale_filter') : "" }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ serie.labels ? serie.labels.fr_FR : '' }}</h5>
+                        <p class="card-text">{{ serie.descriptions ? serie.descriptions.fr_FR : '' }}</p>
+                        <a class="btn btn-primary" href="{{ path('serie_show', {'id': serie.id}) }}">show</a>
+                        <a class="btn btn-secondary" href="{{ path('serie_edit', {'id': serie.id}) }}">edit</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-md-12">
+                No records found
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

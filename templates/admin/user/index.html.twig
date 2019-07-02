@@ -1,0 +1,35 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-8 text-left"><h1>Users</h1></div>
+        <div class="col-md-4 text-right"><a class="btn btn-success" href="{{ path('user_new') }}">Create new</a></div>
+    </div>
+    <div class="row">
+        {% for user in users %}
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ user.username }}</h5>
+                        <p class="card-text">
+                            <b>{{ user.enabled ? '<span class="text-success">Enabled</span>' : '<span class="text-danger">Disabled</span>' }}</b>
+                            <b>Email:</b>{{ user.email }} <br>
+                            <b>Last login:</b>{{ user.lastLogin ? user.lastLogin|date('Y-m-d H:i:s') : '' }} <br>
+                            {% for role in user.roles %}
+                                <span class="badge badge-info">{{ role }}</span>
+                            {% endfor %}
+                        </p>
+                        <a class="btn btn-primary" href="{{ path('user_show', {'id': user.id}) }}">show</a>
+                        <a class="btn btn-secondary" href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-md-12">
+                No records found
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'front/layout/main.layout.html.twig' %}
+
+{% block content %}
+    <section class="ftco-section" style="margin-top: -90px;">
+        <div class="container">
+                {% for son in sons %}
+                    <div class="row m-2 pb-3">
+                        <div class="col-md-12 " style="padding-bottom: 55px;">
+                            {% if app.request.getLocale() == 'en' %}
+                                {% set title = son.labels.en_EN %}
+                                {% set description = son.descriptions.en_EN %}
+                            {% else %}
+                                {% set title = son.labels.fr_FR %}
+                                {% set description = son.descriptions.fr_FR %}
+                            {% endif %}
+                            {{ son.embed|raw }}
+                        </div>
+                        <div class="col-md-12" style="margin-top: -50px">
+                            <h3>{{ title }}</h3>
+                            <p style="text-align: justify;font-family: 'Gothic A1:300', sans-serif; margin-top:-15px;">{{ description|nl2br }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+
+{% block title %}
+    Sons - {{ parent() }}
+{% endblock %}
+

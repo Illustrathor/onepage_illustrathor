@@ -1,0 +1,32 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Son & Multimedia{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-8 text-left"><h1>Son & Multimedia</h1></div>
+        <div class="col-md-4 text-right"><a class="btn btn-success" href="{{ path('son_new') }}">Create new</a></div>
+    </div>
+    <div class="row">
+        {% for son in sons %}
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    {{ son.embed|raw }}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ son.labels ? son.labels.fr_FR : '' }}</h5>
+                        <p class="card-text">
+                            <b><span class="{{ son.online ? 'text-success' : 'text-danger' }}">{{ son.online ? 'Online' : 'Offline' }}</span></b><br>
+                            {{ son.descriptions ? son.descriptions.fr_FR : '' }}
+                        </p>
+                        <a class="btn btn-primary" href="{{ path('son_show', {'id': son.id}) }}">show</a>
+                        <a class="btn btn-secondary" href="{{ path('son_edit', {'id': son.id}) }}">edit</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-md-12">
+                No records found
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

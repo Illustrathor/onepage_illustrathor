@@ -1,0 +1,30 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Publications{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-8 text-left"><h1>Publications</h1></div>
+        <div class="col-md-4 text-right"><a class="btn btn-success" href="{{ path('publication_new') }}">Create new</a></div>
+    </div>
+    <div class="row">
+        {% for publication in publications %}
+            <div class="col-md-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ publication.coverImage ? asset(publication.coverImage)| imagine_filter('card_scale_filter') : "" }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ publication.labels ? publication.labels.fr_FR : '' }}</h5>
+                        <p class="card-text">{{ publication.descriptions.fr_FR|raw }}</p>
+                        <a class="btn btn-primary" href="{{ path('publication_show', {'id': publication.id}) }}">show</a>
+                        <a class="btn btn-secondary" href="{{ path('publication_edit', {'id': publication.id}) }}">edit</a>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="col-md-12">
+                No records found
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+

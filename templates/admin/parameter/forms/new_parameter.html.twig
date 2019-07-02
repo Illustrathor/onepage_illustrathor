@@ -1,0 +1,8 @@
+<div class="row pt-5">
+    <div class="input-group col-md-12">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="name_of_my_new_parameter">Name</span>
+        </div>
+        <input type="text" name="parameter[parameters][name_of_my_new_parameter]" class="form-control" value="{% if form.parameters['name_of_my_new_parameter'] is defined %}{{ form.parameters['name_of_my_new_parameter'].vars.value }}{% endif %}">
+    </div>
+</div>

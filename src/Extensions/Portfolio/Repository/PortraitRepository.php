@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Extensions\Portfolio\Repository;
+
+use App\Extensions\Portfolio\Entity\Portrait;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Symfony\Bridge\Doctrine\RegistryInterface;
+
+/**
+ * @method Portrait|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Portrait|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Portrait[]    findAll()
+ * @method Portrait[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
+class PortraitRepository extends ServiceEntityRepository
+{
+    public function __construct(RegistryInterface $registry)
+    {
+        parent::__construct($registry, Portrait::class);
+    }
+
+    public function findOnline()
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.online = :val')
+            ->setParameter('val', 1)
+            ->orderBy('p.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    // /**
+    //  * @return Portrait[] Returns an array of Portrait objects
+    //  */
+    /*
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('p.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    */
+
+    /*
+    public function findOneBySomeField($value): ?Portrait
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    */
+}

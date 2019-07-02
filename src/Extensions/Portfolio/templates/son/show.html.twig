@@ -1,0 +1,46 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block title %}Son & Multimedia{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="text-center">
+            <h1>Son & Multimedia: {{ son.labels.fr_FR }}</h1>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-3">
+                <b>Code:</b> {{ son.code }}
+            </div>
+            <div class="col-md-3">
+                <b>Name:</b> {{ son.labels.fr_FR }}
+            </div>
+            <div class="col-md-3">
+                <b><span class="{{ son.online ? 'text-success' : 'text-danger' }}">{{ son.online ? 'Online' : 'Offline' }}</span></b>
+            </div>
+            <div class="col-md-6">
+                <b>URL:</b> {{ son.slug }}
+            </div>
+            <div class="col-md-6">
+                <b>Tags:</b> {% for tag in son.tags %}<span class="badge badge-info m-2">{{ tag }}</span>{% endfor %}
+            </div>
+            <div class="col-md-12">
+                <b>Description:</b>
+                <p>{{ son.descriptions.fr_FR|raw }}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="text-center col-md-12">
+                {{ son.embed|raw }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row pt-4">
+        <div class="col-md-4 text-left"><a class="btn btn-secondary" href="{{ path('son_index') }}">back to list</a></div>
+        <div class="col-md-4 text-center"><a class="btn btn-primary" href="{{ path('son_edit', {'id': son.id}) }}">edit</a></div>
+        <div class="col-md-4 text-right">{{ include('@damnPortfolio/son/_delete_form.html.twig') }}</div>
+    </div>
+{% endblock %}

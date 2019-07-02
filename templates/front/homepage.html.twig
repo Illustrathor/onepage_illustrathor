@@ -1,0 +1,15 @@
+{% extends 'front/layout/main.layout.html.twig' %}
+
+{% block content %}
+    <section class=" text-center pb-5" >
+        <div class="container">
+            <img src="{{ getConfig("home_image").image }}"  style="max-width: 75%;height: auto;"/>
+        </div>
+
+    </section>
+{% endblock %}
+
+{% block title %}
+    {{ parent() }}
+{% endblock %}
+

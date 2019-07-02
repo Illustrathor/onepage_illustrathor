@@ -1,0 +1,32 @@
+<hr>
+<h3>Links</h3>
+<div class="input-group">
+    <div class="input-group-prepend">
+        <span style="width: 150px;" class="input-group-text" id="">Facebook</span>
+    </div>
+    <input  type="text"  name="parameter[parameters][instagram]" class="form-control" {% if form.parameters['facebook'] is defined %}{{ form.parameters['facebook'].vars.value }}{% endif %}>
+</div>
+<div class="input-group">
+    <div class="input-group-prepend">
+        <span style="width: 150px;" class="input-group-text" id="">Instagram</span>
+    </div>
+    <input  type="text"  name="parameter[parameters][instagram]" class="form-control" {% if form.parameters['instagram'] is defined %}{{ form.parameters['instagram'].vars.value }}{% endif %}>
+</div>
+<div class="input-group">
+    <div class="input-group-prepend">
+        <span style="width: 150px;" class="input-group-text" id="">Youtube</span>
+    </div>
+    <input  type="text"  name="parameter[parameters][youtube]" class="form-control" {% if form.parameters['youtube'] is defined %}{{ form.parameters['youtube'].vars.value }}{% endif %}>
+</div>
+<div class="input-group">
+    <div class="input-group-prepend">
+        <span style="width: 150px;" class="input-group-text" id="">Soundcloud</span>
+    </div>
+    <input  type="text"  name="parameter[parameters][soundcloud]" class="form-control" {% if form.parameters['soundcloud'] is defined %}{{ form.parameters['soundcloud'].vars.value }}{% endif %}>
+</div>
+<div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text" style="width: 150px;" id="">Linkedin</span>
+    </div>
+    <input  type="text" name="parameter[parameters][linkedin]" class="form-control" {% if form.parameters['linkedin'] is defined %}{{ form.parameters['linkedin'].vars.value }}{% endif %}>
+</div>

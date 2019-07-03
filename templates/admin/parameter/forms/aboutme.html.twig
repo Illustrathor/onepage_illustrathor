@@ -1,0 +1,21 @@
+<hr>
+<div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+    <input type="text"
+           name="parameter[parameters][title]"
+           class="form-control"
+           value="{% if form.parameters['title'] is defined %}{{ form.parameters['title'].vars.value }}{% endif %}"
+    >
+</div>
+<div class="form-group">
+    <label for="exampleFormControlInput1">Sub-title</label>
+    <input type="text"
+           name="parameter[parameters][sub_title]"
+           class="form-control"
+           value="{% if form.parameters['sub_title'] is defined %}{{ form.parameters['sub_title'].vars.value }}{% endif %}"
+    >
+</div>
+<div class="form-group">
+    <label for="exampleFormControlTextarea1">Content</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="parameter[parameters][content]">{% if form.parameters['content'] is defined %}{{ form.parameters['content'].vars.value }}{% endif %}</textarea>
+</div>

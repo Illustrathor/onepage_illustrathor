@@ -1,0 +1,11 @@
+.parameter__row {
+    border-bottom: #0a6aa1 1px dotted;
+
+    padding-top: 10px;
+}
+.parameter__code {
+    float: left;
+}
+.parameter__button {
+    float:right;
+}

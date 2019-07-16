@@ -9,16 +9,11 @@
     </div>
     <div class="row">
         {% for parameter in parameters %}
-            <div class="col-md-3">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ parameter.labels.fr_FR }}</h5>
-                        <p class="card-text">
-                            <b>Template:</b>{{ parameter.template }} <br>
-                        </p>
-                        <a class="btn btn-primary" href="{{ path('parameter_show', {'id': parameter.id}) }}">show</a>
-                        <a class="btn btn-secondary" href="{{ path('parameter_edit', {'id': parameter.id}) }}">edit</a>
-                    </div>
+            <div class="col-lg-12    parameter__row">
+                <h5 class="parameter__code">{{ parameter.labels.fr_FR }}</h5>
+                <div class="parameter__button">
+                    <a class="btn btn-primary" href="{{ path('parameter_show', {'id': parameter.id}) }}">show</a>&nbsp;
+                    <a class="btn btn-secondary" href="{{ path('parameter_edit', {'id': parameter.id}) }}">edit</a>
                 </div>
             </div>
         {% else %}

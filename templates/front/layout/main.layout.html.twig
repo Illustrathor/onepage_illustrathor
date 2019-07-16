@@ -79,10 +79,10 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-6">
-          <h2 class="text-lg-left">About me</h2>
+          <h2 class="text-lg-left">{{ getConfig("about_me").parameters.title }}</h2>
           <hr class="mx-lg-0">
-          <h3><strong><?= NAME; ?> VANDROMME</strong>, Graphic designer</h3>
-          <p>Hi! My name is Victor, and i’m graphic designer. I leave in France, close to Lille. I started to get interested in graphic design at a very young age, all these years of creations have allowed me to acquire good skills in the field. I have few work experiences but I am very motivated to undertake my projects!</p>
+          <h3>{{ getConfig("about_me").parameters.sub_title }}</h3>
+          <p>{{ getConfig("about_me").parameters.content|nl2br }}</p>
           <ul>
             <li>Name : VANDROMME Victor</li>
             <li>E-mail : <a href="mailto:contact@illustrathor.com">contact@illustrathor.com</a></li>
